@@ -3,21 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev & npx next-video sync -w",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@mux/mux-player": "^2.3.0",
     "@phosphor-icons/react": "^2.0.14",
-    "next": "14.0.2",
+    "axios": "^1.6.2",
+    "eslint-config-next": "^14.0.4",
+    "next": "^14.0.4",
     "next-auth": "^4.24.5",
-    "react": "^18",
-    "react-dom": "^18",
+    "next-video": "^0.11.1",
+    "prisma": "^5.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
+    "react-player": "^2.14.1",
     "react-slideshow-image": "^4.3.0",
     "react-youtube": "^10.1.0",
-    "swiper": "^11.0.5"
+    "sass": "^1.69.5",
+    "swiper": "^11.0.5",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

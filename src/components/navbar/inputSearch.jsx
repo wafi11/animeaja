@@ -1,55 +1,33 @@
 "use client";
-
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { HiSearch } from "react-icons/hi";
 
 const InputSearch = () => {
-  const searching = useRef();
+  const searchRef = useRef();
   const router = useRouter();
 
-  // salah satu cara untuk enter saat searching
-  // const handleEnter = (e) => {
-  //     e.preventDefault()
-  //     const key = searching.current.value
-  //     router.push(`/search/${key}`)
-  // }
-  // useEffect(()=> {
-  //     const keyDownHandler = (e) => {
-  //         if (e.key === 'Enter'){
-  //             e.preventDefault()
-  //             // login press enter
-  //             handleEnter()
-  //         }
-  //     }
-  //     document.addEventListener('keydown',keyDownHandler)
-  //     return () => {
-  //         document.removeEventListener('keydown',keyDownHandler)
-  // }
-  // },[])
-
-  const handleSearch = (event) => {
-    const keyword = searching.current.value;
-    if (keyword.length <= 2) {
-      return;
-    }
-    if (event.key === "Enter" || event.type === "click") {
-      event.preventDefault();
+  const handleSearch = (e) => {
+    const keyword = searchRef.current.value;
+    if (e.key === "Enter" || e.type === "click") {
+      e.preventDefault();
       router.push(`/search/${keyword}`);
     }
   };
   return (
-    <div className="relative ">
+    <div className="flex relative px-3 sm:px-2">
       <input
-        placeholder="Search ...."
-        className="rounded-full p-2 w-full mx-2"
-        ref={searching}
+        type="text"
+        placeholder="Search Movie..."
+        className="rounded-full px-3 py-1 focus:outline-none w-full"
+        ref={searchRef}
         onKeyDown={handleSearch}
       />
-      <button className="absolute top-2 end-1 right-4" onClick={handleSearch}>
-        <MagnifyingGlass size={27} />
+      <button className="absolute right-4 top-1" onClick={handleSearch}>
+        <HiSearch size={28} />
       </button>
     </div>
   );
 };
+
 export default InputSearch;

@@ -15,15 +15,17 @@ const InputSearch = () => {
     }
   };
   return (
-    <div className="flex relative px-3 sm:px-2">
+    <div className="hidden sm:flex relative">
       <input
         type="text"
         placeholder="Search Movie..."
-        className="rounded-full px-3 py-1 focus:outline-none w-full"
+        className="rounded-lg px-3 py-2 focus:outline-none min-w-[80%] hidden sm:block"
         ref={searchRef}
         onKeyDown={handleSearch}
       />
-      <button className="absolute right-4 top-1" onClick={handleSearch}>
+      <button
+        className="absolute right-4 top-1 border-gray-100 border-[3px] rounded-full"
+        onClick={handleSearch}>
         <HiSearch size={28} />
       </button>
     </div>

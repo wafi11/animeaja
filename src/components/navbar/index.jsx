@@ -3,7 +3,7 @@ import { dataNav } from "@/libs/data";
 import Image from "next/image";
 import NavbarItem from "./NavbarItem";
 import Logo from "@/Assets/images/logo.png";
-import { HiDotsVertical } from "react-icons/hi";
+import { HiDotsVertical, HiPlus } from "react-icons/hi";
 import { useState } from "react";
 import icons from "@/Assets/images/icons.png";
 import InputSearch from "./InputSearch";
@@ -59,14 +59,19 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <InputSearch />
-        <Image
-          src={icons}
-          className="w-[40px] rounded-full"
-          alt="../"
-          width="auto"
-          height="auto"
-        />
+        <div className="flex justify-between gap-3 sm:gap-7">
+          <InputSearch />
+          <button className="text-white bg-blue-800 rounded-lg px-2">
+            <HiPlus size={25} />
+          </button>
+          <Image
+            src={icons}
+            className="w-[40px] rounded-full "
+            alt="../"
+            width="auto"
+            height="auto"
+          />
+        </div>
       </div>
     </div>
   );

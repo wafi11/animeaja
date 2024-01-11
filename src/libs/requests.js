@@ -1,12 +1,14 @@
 import axios from "axios"
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 export const getTopMovies = async(resource, query) => {
-    const response = await axios(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`)
-    const anime = await response.data
-    console.log(anime)
-    return anime
+    try{
+        const response = await axios(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`)
+        return response.data
+    }
+    catch(err){
+        console.log("Error: ", err);
+    }
 }
 
 export const getTrendingMovies = async() => {

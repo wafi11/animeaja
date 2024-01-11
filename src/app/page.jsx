@@ -1,20 +1,12 @@
-import SliderAnime from "@/components/SliderAnime/index";
-import { getTopMovies } from "@/libs/requests";
-import Slider from "@/components/SliderAnime/slider";
-import Header from "@/components/SliderAnime/header";
-
-const Page = async () => {
-  const movies = await getTopMovies("top/anime", "limit=10");
-  console.log(movies);
-  const moviesList = await getTopMovies("top/manga", "page=1");
-
+// import SliderAnime from "@/components/SliderAnime/index";
+// import { getTopMovies } from "@/libs/requests";
+// import Sliders from "@/components/SliderAnime/slider";
+// import Header from "@/components/SliderAnime/header";
+import Home from "@/components/Pages/Home";
+const Page = () => {
   return (
     <>
-      <section>
-        <SliderAnime api={movies} />
-        <Header title={"Paling Popular"} />
-        <Slider api={moviesList} />
-      </section>
+      <Home />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 
 const Pagination = ({ page, lastPage, setPage }) => {
   const scrollTop = () => {
@@ -18,8 +19,18 @@ const Pagination = ({ page, lastPage, setPage }) => {
   };
 
   return (
-    <div className="text-white">
-      {page > 1 ? <button onClick={prevPage}>Previous</button> : null}
+    <div className="text-white text-2xl justify-center text-center flex flex-row gap-8 mt-10">
+      {page <= 1 ? null : (
+        <button onClick={prevPage}>
+          <GrLinkPrevious />
+        </button>
+      )}
+      <p>{page}</p>
+      {page >= lastPage ? null : (
+        <button onClick={nextPage}>
+          <GrLinkNext />
+        </button>
+      )}
     </div>
   );
 };

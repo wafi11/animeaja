@@ -1,5 +1,4 @@
 import { HiHome,
-    HiMagnifyingGlass,
     HiStar,
     HiPlayCircle,
     HiTv } from "react-icons/hi2";
@@ -21,10 +20,6 @@ export const dataNav = [
         href : "/"
     },
     {
-        name : "WATCH LIST",
-        icon : HiPlus,
-    },
-    {
         name : "TRENDING",
         icon : HiStar,
         href : "topManga"
@@ -32,10 +27,7 @@ export const dataNav = [
     {
         name : "MOVIES",
         icon : HiPlayCircle,
-    },
-    {
-        name : "SERIES",
-        icon : HiTv,
+        href : 'modal'
     },
 ]
 

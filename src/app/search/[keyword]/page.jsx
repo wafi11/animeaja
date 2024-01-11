@@ -1,7 +1,6 @@
-import Header from "@/components/SliderAnime/header";
 import { getTopMovies } from "@/libs/requests";
-import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 
 const Page = async ({ params }) => {
   const { keyword } = params;
@@ -13,20 +12,21 @@ const Page = async ({ params }) => {
         <h3 className="py-5 px-3 text-3xl font-bold text-white ">
           Pencarian untuk ... {params.keyword}
         </h3>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 ">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 ">
           {response.data?.map((item, index) => {
             return (
-              <div className="w-full " key={index}>
+              <Link href={`/anime/${item.mal_id}`} key={index}>
                 <Image
                   src={item.images.jpg.image_url}
-                  width={250}
-                  height={40}
-                  className="object-cover w-full"
+                  alt="../"
+                  width={200}
+                  height={100}
+                  className="object-cover w-full max-h-65"
                 />
-                <h1 className="text-white text-xl" key={item.mal_id}>
+                <h1 className="text-white text-xl mt-4" key={item.mal_id}>
                   {item.title}
                 </h1>
-              </div>
+              </Link>
             );
           })}
         </div>
